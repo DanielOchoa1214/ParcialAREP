@@ -63,7 +63,7 @@ public class ServiceFacade {
     }
 
     private static String buildResponse(URI path) throws IOException {
-        if (path.getPath().equals("/") || path.getPath().equals("/calculator")){
+        if (path.getPath().equals("/") || path.getPath().equals("/calculadora")){
             return  getHeader() + getBody();
         } else if (path.getPath().contains("/computar")){
             return getHeader() + HttpConnectionToCalculator.calculate(path.getQuery().split("=")[1]);
@@ -89,9 +89,9 @@ public class ServiceFacade {
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     </head>
                     <body>
-                        <h1>Holi, Mete una funcion que te la contesto</h1>
+                        <h1>Profe pongame 5</h1>
                         <form action="/hello">
-                            <label for="name">Name:</label><br>
+                            <label for="name">Mete la funcion que te la contesto</label><br>
                             <input type="text" id="name" name="name" value="John"><br><br>
                             <input type="button" value="Submit" onclick="loadGetMsg()">
                         </form>
