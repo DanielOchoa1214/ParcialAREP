@@ -18,7 +18,10 @@ public class Calculator {
     }
 
     public String calculate() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, ClassNotFoundException {
-        if(this.function.equals("qck")) return quickSort(this.values, 0, this.values.size());
+        if(this.function.equals("qck")){
+            quickSort(this.values, 0, this.values.size());
+            return this.values.toString();
+        }
         Double result = null;
         Class<?> mathClass = Class.forName("java.lang.Math");
         Class[] argTypes = new Class[values.size()];
@@ -31,13 +34,12 @@ public class Calculator {
         return String.valueOf(result);
     }
 
-    public String quickSort(List<Double> arr, int start, int end){
+    public void quickSort(List<Double> arr, int start, int end){
         if(start < end){
-
+            int pivotPos = partition(arr, start, end);
+            quickSort(arr, pivotPos + 1, end);
+            quickSort(arr, start, pivotPos - 1);
         }
-        int pivotPos = partition(arr, 0, arr.size());
-
-        return "HACIENDO QUICKSORT";
     }
 
     private int partition(List<Double> arr, int start, int end){
